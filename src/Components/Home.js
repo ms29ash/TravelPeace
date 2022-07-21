@@ -5,11 +5,13 @@ import About from './About'
 import Offer from './Offer'
 import Form from './Form'
 import Reviews from './Reviews'
+import sc from 'styled-components'
 
 function Home() {
     return (
         <>
             <Header />
+
             <Places />
             <About />
             <Offer />
@@ -20,3 +22,10 @@ function Home() {
 }
 
 export default Home
+
+const Main = sc.main`
+position:relative;
+&:before{
+
+
+}`
