@@ -10,7 +10,6 @@ function Places() {
   const fetchPlaces = async () => {
     try {
       const response = await axios.get('/place');
-      console.log(response.data.items);
       setData(response?.data.items);
     } catch (error) {
       console.error(error);
