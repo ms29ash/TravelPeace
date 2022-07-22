@@ -62,7 +62,6 @@ position:relative;
 
 const Title = sc.h1`
 width:100%;
-height:10%;
 font-size:2rem;
 text-align:center;
 padding:0 0 1rem;
