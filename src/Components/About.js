@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import sc from "styled-components";
 import { AiFillPlayCircle } from "react-icons/ai";
 
@@ -74,37 +74,52 @@ export default About;
 const Section = sc.section`
      width:100vw;
     height:100vh;
+    height:max-content;
     display:grid;
     place-items:center;
-    position:relative;
     background: url('./images/bird.jpg') no-repeat center center/cover;
     background-color:#22594a68;
     background-blend-mode:overlay;
+    padding:1rem  0;
     `;
 const Container = sc.div`
   background:#0000007e no-repeat center center/cover; 
-  position:absolute;
-  z-index:10;
-  top:0;
-  right:0;
-  left:0;
-  bottom:0;
   display:flex;
   height:100%;
   width:100%;
   align-items:center;
   justify-content:space-between;
+  @media only screen and (min-width:0px) and (max-width:600px){
+    flex-direction:column-reverse;
+   
+    }
 `;
 const Text = sc.div`
   width:50%;
   color:#fff;
   margin-left:5%;
+  @media only screen and (min-width:0px) and (max-width:600px){
+    width:95%;
+    margin-left:0%;
+    
+   
+    }
 `;
 const Title = sc.h1`
-  font-size:4rem;`;
+  font-size:4rem;
+  @media only screen and (min-width:0px) and (max-width:600px){
+    font-size: 2.5rem;
+   
+    }
+  `;
 const Description = sc.div`
   displaY:flex;
-  font-size:1.5rem;`;
+  font-size:1.5rem;
+  @media only screen and (min-width:0px) and (max-width:600px){
+    font-size: 1.15rem;
+   
+    }
+  `;
 const Wrapper = sc.div`
   margin-right:5%;
   width:45%;
@@ -112,6 +127,13 @@ const Wrapper = sc.div`
   display:flex;
   justify-content:space-around;
   align-items:flex-end;
+  @media only screen and (min-width:0px) and (max-width:600px){
+    width:95%;
+    margin-right:0%;
+  height:50%;
+  align-items:center;
+ 
+  }
 `;
 
 const Videos = sc.div`
@@ -119,7 +141,10 @@ const Videos = sc.div`
   align-items:center;
   justify-content:space-between;
   width:100%;
-
+  @media only screen and (min-width:0px) and (max-width:600px){
+   flex-direction:column;
+   
+    }
 `;
 
 const VideoContainer = sc.div`
@@ -128,6 +153,10 @@ const VideoContainer = sc.div`
   transform-origin:center;
   transition: all 150ms cubic-bezier(0.25,0.46,0.45,0.94) 0s;
   width:50%;
+  @media only screen and (min-width:0px) and (max-width:600px){
+    width:80%;
+   
+    }
   `;
 const Video = sc.video`
   width:100% !important;

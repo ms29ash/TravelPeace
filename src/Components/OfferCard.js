@@ -16,16 +16,12 @@ function OfferCard({ item, timer }) {
         }
 
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     const {
         seconds,
         minutes,
         hours,
-        days,
-        isRunning,
-        start,
-        pause,
-        resume,
         restart,
 
     } = useTimer({ timer, onExpire: () => console.warn('onExpire called') });
