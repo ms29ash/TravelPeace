@@ -74,13 +74,16 @@ export default About;
 const Section = sc.section`
      width:100vw;
     height:100vh;
-    height:max-content;
     display:grid;
     place-items:center;
     background: url('./images/bird.jpg') no-repeat center center/cover;
     background-color:#22594a68;
     background-blend-mode:overlay;
     padding:1rem  0;
+    @media only screen and (min-width:0px) and (max-width:600px){
+      height:max-content;
+     
+      }
     `;
 const Container = sc.div`
   background:#0000007e no-repeat center center/cover; 
