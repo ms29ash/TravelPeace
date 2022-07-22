@@ -110,7 +110,7 @@ margin:0.5rem 0;
 `;
 const SubHead = sc.h2`
 font-size:1.25rem;
-color:#04BF7B;
+color:${p => p.theme.color.second};
 margin:0.5rem 0;
 `;
 

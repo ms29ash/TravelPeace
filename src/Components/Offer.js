@@ -66,7 +66,7 @@ height:10%;
 font-size:2rem;
 text-align:center;
 padding:0 0 1rem;
-border-bottom:2px solid #22594a;
+border-bottom:2px solid ${props => props.theme.color.main};
 position:relative;
 &:before { 
   position:absolute;
@@ -74,7 +74,8 @@ position:relative;
   content:'';
   right:41%;
   left:41%;
-  background-color:#22594a;
+  border-radius: 10px 10px 0 0;
+  background-color:${props => props.theme.color.main};
   height:7px;
 }
 `;

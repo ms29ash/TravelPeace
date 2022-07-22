@@ -59,15 +59,17 @@ font-size:2rem;
 text-align:center;
 position:relative;
 padding:0 0 1rem;
-border-bottom:2px solid #22594a;
+color:${p => p.theme.color.grey};
+border-bottom:2px solid ${p => p.theme.color.main};
 &:before { 
   position:absolute;
   bottom:0;
   content:'';
   right:41%;
   left:41%;
-  background-color:#22594a;
+  background-color:${p => p.theme.color.main};
   height:7px;
+  border-radius:10px 10px 0 0;
 }
 `;
 
@@ -143,6 +145,7 @@ font-weight:bold;
 const Btn = sc.button`
     padding:0.75rem 3rem;
     border-radius:50px;
+    font-weight: bold;
     border:none;
     display:none;
     transition: all 150ms cubic-bezier(0.25,0.46,0.45,0.94) 0s;

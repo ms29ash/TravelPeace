@@ -49,7 +49,6 @@ overflow-x:hidden;
   mask-image: linear-gradient(to top ,#22594A 85%, transparent);
   background-position: 20%  0%;
   transform:scale(0.9);
-  
   @media only screen and (max-width:1024px) and (min-width:0px){
     transform:scale(1.0);
     background-position: center;
@@ -62,7 +61,7 @@ display:flex;
 position:absolute;
 width:90%;
 top:5vh;
-border-bottom: 2px solid #000;
+border-bottom: 2px solid ${(p) => p.theme.color.gray};
 align-items: center;
 justify-content: space-between;
 `;
@@ -79,7 +78,7 @@ padding:1rem 0.5rem;
 margin:0 2rem;
 position:relative;
 cursor:pointer;
-color:#232426;
+color:${(p) => p.theme.color.gray};
 
  &:before{
   opacity: 0;
@@ -89,9 +88,9 @@ color:#232426;
   bottom:0;
   right:0;
   left:0;
-  background-color:#232426;
+  background-color:${(p) => p.theme.color.gray};
   height:5px;
-  border-radius:5px;
+  border-radius: 10px 10px 0 0;
   transform-origin:left center;
   transition: all 250ms cubic-bezier(0.25,0.46,0.45,0.94) 0s;
  }
@@ -135,10 +134,11 @@ border:none;
 border-radius:50px;
 margin-top:5vh;
 color:#fff;
-background:#04BF7B;
+font-weight:bold;
+background:${(p) => p.theme.color.second};
 cursor:pointer;
 &:hover{
-  background-color:#03A66A;
+  background-color:${(p) => p.theme.color.darkSecond};
 
 }
 `;
