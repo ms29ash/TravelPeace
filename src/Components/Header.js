@@ -11,7 +11,9 @@ function Header() {
   return (
     <Container>
       <Nav>
-        <Logo>Logo</Logo>
+        <Logo>
+          <Img src="./logo/travel.png" alt="" />
+        </Logo>
         <NavLinks>
           <NavLink location={location.pathname}>Home</NavLink>
           <NavLink>About</NavLink>
@@ -46,7 +48,7 @@ overflow-x:hidden;
   z-index:-10;
   background:url('./images/boat mountain.jpg') no-repeat center center/cover;
   -webkit-mask-image: linear-gradient(black, transparent);
-  mask-image: linear-gradient(to top ,#22594A 85%, transparent);
+  mask-image: linear-gradient(to top ,#22594A 72%, transparent);
   background-position: 20%  0%;
   transform:scale(0.9);
   @media only screen and (max-width:1024px) and (min-width:0px){
@@ -64,12 +66,24 @@ top:5vh;
 border-bottom: 2px solid ${(p) => p.theme.color.gray};
 align-items: center;
 justify-content: space-between;
+
 `;
-const Logo = sc.div``;
-const Img = sc.img``;
+const Logo = sc.div`
+height:7rem;
+@media only screen and (max-width:768px) and (min-width:0px){
+  height:5rem;
+  }
+`;
+const Img = sc.img`
+height:100%;
+margin-left:2rem;
+`;
 
 const NavLinks = sc.div`
 display:flex;
+@media only screen and (max-width:768px) and (min-width:0px){
+  display:none;
+   }
 `;
 const NavLink = sc.li`
 font-weight:800;
