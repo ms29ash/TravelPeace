@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import sc from "styled-components";
 import { useLocation } from "react-router-dom";
+import { Turn as Hamburger } from "hamburger-react";
+import HamMenu from "./HamMenu";
 
 function Header() {
   const location = useLocation();
@@ -8,17 +10,27 @@ function Header() {
     console.log(location.pathname);
   }, [location.pathname]);
 
+  const [isOpen, setOpen] = useState(false);
   return (
     <Container>
       <Nav>
-        <Logo>
-          <Img src="./logo/travel.png" alt="" />
-        </Logo>
-        <NavLinks>
-          <NavLink location={location.pathname}>Home</NavLink>
-          <NavLink>About</NavLink>
-          <NavLink>Gallery</NavLink>
-        </NavLinks>
+        <NavContainer>
+          <Logo>
+            <Img src="./logo/travel.png" alt="" />
+          </Logo>
+          <NavLinks>
+            <NavLink location={location.pathname}>Home</NavLink>
+            <NavLink>About</NavLink>
+            <NavLink>Gallery</NavLink>
+          </NavLinks>
+          <Menu>
+            <Hamburger rounded toggled={isOpen} toggle={setOpen} />
+          </Menu>
+        </NavContainer>
+        <HamburgerMenu>
+          {" "}
+          <HamMenu isOpen={isOpen} />
+        </HamburgerMenu>
       </Nav>
       <Wrapper>
         <Title>To travel is to live</Title>
@@ -37,6 +49,10 @@ display:grid;
 place-items:center;
 position:relative;
 overflow-x:hidden;
+
+@media only screen and (max-width:768px) and (min-width:0px){
+  height:80vh;
+  }
 
 &:before{
   content:'';
@@ -60,16 +76,32 @@ overflow-x:hidden;
 
 const Nav = sc.nav`
 display:flex;
+flex-direction:column;
 position:absolute;
 width:90%;
 top:5vh;
-border-bottom: 2px solid ${(p) => p.theme.color.gray};
-align-items: center;
-justify-content: space-between;
 
 `;
+
+const NavContainer = sc.div`
+width:100%;
+border-bottom: 2px solid ${(p) => p.theme.color.gray};
+display:flex;
+align-items: flex-end;
+justify-content: space-between;
+`;
+const HamburgerMenu = sc.div`
+width:100%;
+position:relative;
+display:none;
+@media only screen and (max-width:768px) and (min-width:0px){
+  display:block ;
+   }
+`;
+
 const Logo = sc.div`
 height:7rem;
+margin-bottom:-0.8rem;
 @media only screen and (max-width:768px) and (min-width:0px){
   height:5rem;
   }
@@ -120,6 +152,14 @@ color:${(p) => p.theme.color.gray};
   }
 `;
 
+// const Menu
+const Menu = sc.div`
+display:none;
+@media only screen and (max-width:768px) and (min-width:0px){
+  display:block ;
+   }
+`;
+
 const Wrapper = sc.div`
 text-align:center;
 `;
@@ -131,14 +171,19 @@ const Title = sc.h1`
   text-transform:uppercase;
   text-align:center;
   padding: 0 10px;
-  background-color:rgba(255, 255, 255, 0.322);
   margin-bottom:4rem;
-  backdrop-filter: blur(1px);
+  background-color:rgba(255, 255, 255, 0.322);
   -webkit-backdrop-filter: blur(1px);
   backdrop-filter: blur(1px);  
+  -webkit-font-smoothing: antialiased;
   @media only screen and (max-width:768px) and (min-width:0px){
     font-size: 3.5rem;
+    margin-bottom:2rem;
     padding:0 2rem;
+
+    background-color:rgba(255, 255, 255, 0);
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);  
     }
 `;
 const Btn = sc.button`

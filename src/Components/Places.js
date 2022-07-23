@@ -1,41 +1,38 @@
 import React, { useEffect, useState } from "react";
 import sc from "styled-components";
-import axios from '../axios'
-
+import axios from "../axios";
 
 function Places() {
-
   const [data, setData] = useState();
 
   const fetchPlaces = async () => {
     try {
-      const response = await axios.get('/place');
+      const response = await axios.get("/place");
       setData(response?.data.items);
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   useEffect(() => {
-    fetchPlaces()
-  }, [])
+    fetchPlaces();
+  }, []);
   return (
     <Section>
       <Container>
         <Title>Popular Places</Title>
         <Wrapper>
-          {
-            data?.map((item) => {
-
-              return <Card key={item._id} bg={`./images/${item.img}`}>
+          {data?.map((item) => {
+            return (
+              <Card key={item._id} bg={`./images/${item.img}`}>
                 <CardWrapper>
                   <Text>{item.name}</Text>
 
                   <Btn>Learn More</Btn>
                 </CardWrapper>
               </Card>
-            })
-          }
+            );
+          })}
         </Wrapper>
       </Container>
     </Section>
@@ -59,15 +56,15 @@ font-size:2rem;
 text-align:center;
 position:relative;
 padding:0 0 1rem;
-color:${p => p.theme.color.grey};
-border-bottom:2px solid ${p => p.theme.color.main};
+color:${(p) => p.theme.color.grey};
+border-bottom:2px solid ${(p) => p.theme.color.main};
 &:before { 
   position:absolute;
   bottom:0;
   content:'';
   right:41%;
   left:41%;
-  background-color:${p => p.theme.color.main};
+  background-color:${(p) => p.theme.color.main};
   height:7px;
   border-radius:10px 10px 0 0;
 }
@@ -77,6 +74,9 @@ const Container = sc.div`
 display:flex;
 flex-direction:column;
 width:90%;
+@media only screen and (max-width:720px) and (min-width:0px){
+  width:95%;
+  }
 
 `;
 const Wrapper = sc.div`
@@ -102,6 +102,8 @@ display:flex;
 background: ${(props) => `url(${props.bg})`} no-repeat center center/cover;
 transform-origin:center;
 transition: all 150ms cubic-bezier(0.25,0.46,0.45,0.94) 0s;
+@media only screen and (max-width:720px) and (min-width:0px){
+ 
 &:hover{
   background-color:rgb(0,0,0,0.8);
   div{
@@ -116,13 +118,14 @@ transition: all 150ms cubic-bezier(0.25,0.46,0.45,0.94) 0s;
   }
 
 }
+}
 @media only screen and (max-width:1024px) and (min-width:720px){
   width:30%;
   height:27vw;
   }
 @media only screen and (max-width:720px) and (min-width:0px){
   width:100%;
-  height:90vw;
+  height:60vw;
   }
 `;
 const CardWrapper = sc.div`
