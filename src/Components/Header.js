@@ -66,7 +66,6 @@ overflow-x:hidden;
   -webkit-mask-image: linear-gradient(black, transparent);
   mask-image: linear-gradient(to top ,#22594A 72%, transparent);
   background-position: 20%  0%;
-  transform:scale(0.9);
   @media only screen and (max-width:1024px) and (min-width:0px){
     transform:scale(1.0);
     background-position: center;

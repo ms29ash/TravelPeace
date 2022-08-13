@@ -17,25 +17,28 @@ function Places() {
   useEffect(() => {
     fetchPlaces();
   }, []);
-  return (
-    <Section>
-      <Container>
-        <Title>Popular Places</Title>
-        <Wrapper>
-          {data?.map((item) => {
-            return (
-              <Card key={item._id} bg={`./images/${item.img}`}>
-                <CardWrapper>
-                  <Text>{item.name}</Text>
 
-                  <Btn>Learn More</Btn>
-                </CardWrapper>
-              </Card>
-            );
-          })}
-        </Wrapper>
-      </Container>
-    </Section>
+  return (
+    <>
+      <Section>
+        <Container>
+          <Title>Popular Places</Title>
+          <Wrapper>
+            {data?.map((item) => {
+              return (
+                <Card key={item._id} bg={`./images/${item.img}`}>
+                  <CardWrapper>
+                    <Text>{item.name}</Text>
+
+                    <Btn>Learn More</Btn>
+                  </CardWrapper>
+                </Card>
+              );
+            })}
+          </Wrapper>
+        </Container>
+      </Section>
+    </>
   );
 }
 
@@ -66,7 +69,6 @@ border-bottom:2px solid ${(p) => p.theme.color.main};
   left:41%;
   background-color:${(p) => p.theme.color.main};
   height:7px;
-  border-radius:10px 10px 0 0;
 }
 `;
 
@@ -97,20 +99,19 @@ height:18vw;
 width:18%;
 color:white;
 align-items:flex-end;
-border-radius:10px;
 display:flex;
 background: ${(props) => `url(${props.bg})`} no-repeat center center/cover;
 transform-origin:center;
 transition: all 150ms cubic-bezier(0.25,0.46,0.45,0.94) 0s;
-@media only screen and (max-width:720px) and (min-width:0px){
+box-shadow: rgba(0, 0, 0, 0.6) 6px 14px 26px;
  
 &:hover{
   background-color:rgb(0,0,0,0.8);
   div{
     height:100%;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     button{
    
       display:block;
@@ -118,7 +119,7 @@ transition: all 150ms cubic-bezier(0.25,0.46,0.45,0.94) 0s;
   }
 
 }
-}
+
 @media only screen and (max-width:1024px) and (min-width:720px){
   width:30%;
   height:27vw;
@@ -130,12 +131,12 @@ transition: all 150ms cubic-bezier(0.25,0.46,0.45,0.94) 0s;
 `;
 const CardWrapper = sc.div`
 height:30%;
-border-radius:10px;
 display:grid;
 place-items:center;
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-backdrop-filter: blur(5px);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
+backdrop-filter: blur(3px);
+background:linear-gradient(to bottom , rgba(0,0,0,0.5) 0% , rgba(0,0,0,0.9) 100%);
 width:100%;
 transform-origin: bottom;
   transition: all 250ms cubic-bezier(0.25,0.46,0.45,0.94) 0s;
