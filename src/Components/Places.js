@@ -28,7 +28,10 @@ function Places() {
               return (
                 <Card key={item._id} bg={`./images/${item.img}`}>
                   <CardWrapper>
-                    <Text>{item.name}</Text>
+                    <Text>{item.name}
+                      <br />
+                      India
+                    </Text>
 
                     <Btn>Learn More</Btn>
                   </CardWrapper>
@@ -65,8 +68,10 @@ border-bottom:2px solid ${(p) => p.theme.color.main};
   position:absolute;
   bottom:0;
   content:'';
-  right:41%;
-  left:41%;
+  right:0vw;
+  left:0vw;
+  width:20rem;
+  margin:0 auto;
   background-color:${(p) => p.theme.color.main};
   height:7px;
 }
