@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import sc from "styled-components";
 import { AiFillPlayCircle } from "react-icons/ai";
 
-function About() {
+function About1() {
   const vid1 = useRef(null);
   const vid2 = useRef(null);
   return (
@@ -19,9 +19,7 @@ function About() {
         </Text>
         <Wrapper>
           <Videos>
-
-
-            <VideoContainer >
+            <VideoContainer>
               <Video ref={vid1} loop poster="./images/ladakh_vid.jpg">
                 <source src="./videos/ladakh_vid.mp4" type="video/webm" />
                 <source src="./videos/ladakh_vid.mp4" type="video/mp4" />
@@ -34,14 +32,10 @@ function About() {
                   vid1.current.play();
                   vid1.current.setAttribute("controls", "true");
                   document.getElementById("icn1").style.display = "none";
-                }}
-
-              >
+                }}>
                 <AiFillPlayCircle />
               </Icon>
             </VideoContainer>
-
-
 
             <VideoContainer>
               <Video ref={vid2} poster="./images/town.jpg">
@@ -59,9 +53,6 @@ function About() {
                 <AiFillPlayCircle />
               </Icon>
             </VideoContainer>
-
-
-
           </Videos>
         </Wrapper>
       </Container>
@@ -69,38 +60,51 @@ function About() {
   );
 }
 
-export default About;
+export default About1;
 
 const Section = sc.section`
      width:100vw;
-    height:100vh;
+     padding:10vh 0;
+    height:max-content;
     display:grid;
     place-items:center;
+    position:relative;
+    &:before{
+      position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+        content:'';
+        z-index:-1;
     background: url('./images/bird.jpg') no-repeat center center/cover;
-    background-color:#22594a68;
     background-blend-mode:overlay;
-    padding:1rem  0;
-    @media only screen and (min-width:0px) and (max-width:600px){
+    transform:rotateY(180deg);
+  }
+  @media only screen and (min-width:0px) and (max-width:600px){
       height:max-content;
      
       }
     `;
 const Container = sc.div`
-  background:#0000007e no-repeat center center/cover; 
   display:flex;
+  color:#000;
+  background:linear-gradient(to right , rgba(255, 255, 255, 0.9) 50% , rgba(255, 255, 255, 0.158) 60%, rgba(255, 255, 255, 0.1) 100%);
   height:100%;
+  padding:10vh 0;
   width:100%;
   align-items:center;
   justify-content:space-between;
   @media only screen and (min-width:0px) and (max-width:600px){
     flex-direction:column-reverse;
+    background:#fff;
    
     }
 `;
 const Text = sc.div`
-  width:50%;
-  color:#fff;
+  width:30%;
   margin-left:5%;
+  color:#000;
   @media only screen and (min-width:0px) and (max-width:600px){
     width:95%;
     margin-left:0%;
@@ -109,15 +113,16 @@ const Text = sc.div`
     }
 `;
 const Title = sc.h1`
-  font-size:4rem;
+  font-size:2.5rem;
+  margin-bottom: 1.5rem;
   @media only screen and (min-width:0px) and (max-width:600px){
-    font-size: 2.5rem;
+    font-size: 1.75rem;
    
     }
   `;
 const Description = sc.div`
   displaY:flex;
-  font-size:1.5rem;
+  font-size:1.25rem;
   @media only screen and (min-width:0px) and (max-width:600px){
     font-size: 1.15rem;
    
@@ -125,11 +130,12 @@ const Description = sc.div`
   `;
 const Wrapper = sc.div`
   margin-right:5%;
-  width:45%;
+  width:65%;
   height:70%;
   display:flex;
   justify-content:space-around;
   align-items:flex-end;
+  align-items:center;
   @media only screen and (min-width:0px) and (max-width:600px){
     width:95%;
     margin-right:0%;
@@ -144,7 +150,7 @@ const Videos = sc.div`
   align-items:center;
   justify-content:space-between;
   width:100%;
-  @media only screen and (min-width:0px) and (max-width:600px){
+  @media only screen and (min-width:0px) and (max-width:1200px){
    flex-direction:column;
    
     }
@@ -156,6 +162,7 @@ const VideoContainer = sc.div`
   transform-origin:center;
   transition: all 150ms cubic-bezier(0.25,0.46,0.45,0.94) 0s;
   width:50%;
+  aspect-ratio:16/9;
   @media only screen and (min-width:0px) and (max-width:600px){
     width:80%;
    
@@ -165,7 +172,6 @@ const Video = sc.video`
   width:100% !important;
   height:100% !important;
   object-fit:cover;
-  border-radius: 10px;
   
 `;
 

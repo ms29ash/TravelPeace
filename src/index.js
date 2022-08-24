@@ -8,8 +8,8 @@ import { ThemeProvider } from "styled-components";
 
 const theme = {
   color: {
-    main: "#22594a",
-    second: "#04bf7b",
+    second: "#22594a",
+    main: "#04bf7b",
     darkSecond: "#08a76c",
     gray: "#232426",
   },
