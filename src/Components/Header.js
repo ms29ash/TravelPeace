@@ -28,12 +28,14 @@ function Header() {
           </Menu>
         </NavContainer>
         <HamburgerMenu>
-          {" "}
           <HamMenu isOpen={isOpen} />
         </HamburgerMenu>
       </Nav>
       <Wrapper>
-        <Title>To travel is to live</Title>
+        <Title>
+          <h1> To travel is to live</h1>
+          <h2>Journey</h2>
+        </Title>
         <Btn>Learn More</Btn>
       </Wrapper>
     </Container>
@@ -62,15 +64,9 @@ overflow-x:hidden;
   right:0;
   left:0;
   z-index:-10;
-  background:url('./images/boat mountain.jpg') no-repeat center center/cover;
-  -webkit-mask-image: linear-gradient(black, transparent);
-  mask-image: linear-gradient(to top ,#22594A 72%, transparent);
-  background-position: 20%  0%;
-  @media only screen and (max-width:1024px) and (min-width:0px){
-    transform:scale(1.0);
-    background-position: center;
-    }
-}
+  background:url('https://images.unsplash.com/photo-1593693397690-362cb9666fc2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2400&q=80') no-repeat center center/cover;
+  background-position: 10%  40%;
+ }
 `;
 
 const Nav = sc.nav`
@@ -78,7 +74,7 @@ display:flex;
 flex-direction:column;
 position:absolute;
 width:90%;
-top:5vh;
+top:0;
 
 `;
 
@@ -151,7 +147,6 @@ color:${(p) => p.theme.color.gray};
   }
 `;
 
-// const Menu
 const Menu = sc.div`
 display:none;
 @media only screen and (max-width:768px) and (min-width:0px){
@@ -162,29 +157,57 @@ display:none;
 const Wrapper = sc.div`
 text-align:center;
 `;
-const Title = sc.h1`
-  font-size:5rem;
-  color:#000;
-  position:relative;
+
+const Title = sc.div`
+position:relative;
+h1{
+  font-size:4.5rem;
+  color:#fff;
   top:10%;
   text-transform:uppercase;
   text-align:center;
   padding: 0 10px;
   margin-bottom:4rem;
-  background-color:rgba(255, 255, 255, 0.322);
-  -webkit-backdrop-filter: blur(1px);
-  backdrop-filter: blur(1px);  
+  font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
-  @media only screen and (max-width:768px) and (min-width:0px){
+  filter:drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.899));
+  @media only screen and (max-width:768px) and (min-width:600px){
     font-size: 3.5rem;
     margin-bottom:2rem;
     padding:0 2rem;
-
-    background-color:rgba(255, 255, 255, 0);
-    -webkit-backdrop-filter: blur(0px);
-    backdrop-filter: blur(0px);  
+  }
+  @media only screen and (max-width:600px) and (min-width:0px){      
+      font-size:2.5rem;
+      margin-bottom:2rem;
+      padding:0 2rem;
+      background-color:rgba(255, 255, 255, 0);
     }
+}
+  h2{
+    font-family: 'Herr Von Muellerhoff', cursive;
+    text-transform: capitalize;
+    font-size:7rem;
+    z-index:-1;
+    content:'Journey';
+    position:absolute;
+    bottom:30%;
+    left:60%;
+    color:${(p) => p.theme.color.darkSecond};
+    @media only screen and (max-width:1000px) and (min-width:600px){      
+      bottom:55%;
+    }
+    @media only screen and (max-width:600px) and (min-width:0px){      
+      left:40%;
+      bottom:55%;
+      font-size:4.5rem;
+    }
+  }
+
+  
+
+
 `;
+
 const Btn = sc.button`
 font-size:1rem;
 padding:1rem 2rem;
@@ -192,8 +215,9 @@ border:none;
 border-radius:50px;
 margin-top:5vh;
 color:#fff;
+
 font-weight:bold;
-background:${(p) => p.theme.color.second};
+background:${(p) => p.theme.color.main};
 cursor:pointer;
 &:hover{
   background-color:${(p) => p.theme.color.darkSecond};
