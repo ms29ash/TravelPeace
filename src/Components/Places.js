@@ -23,22 +23,26 @@ function Places() {
       <Section>
         <Container>
           <Title>Popular Places</Title>
-          <Wrapper>
-            {data?.map((item) => {
-              return (
-                <Card key={item._id} bg={`./images/${item.img}`}>
-                  <CardWrapper>
-                    <Text>{item.name}
-                      <br />
-                      India
-                    </Text>
+          <Cards>
 
-                    <Btn>Learn More</Btn>
-                  </CardWrapper>
-                </Card>
-              );
-            })}
-          </Wrapper>
+            <Wrapper>
+
+              {data?.map((item) => {
+                return (
+                  <Card key={item._id} bg={`./images/${item.img}`}>
+                    <CardWrapper>
+                      <Text>{item.name}
+                        <br />
+                        India
+                      </Text>
+
+                      <Btn>Learn More</Btn>
+                    </CardWrapper>
+                  </Card>
+                );
+              })}
+            </Wrapper>
+          </Cards>
         </Container>
       </Section>
     </>
@@ -48,16 +52,20 @@ function Places() {
 export default Places;
 
 const Section = sc.section`
-width:100vw;
+max-width:100vw;
 overflow-x:hidden;
 padding:10vh 0;
 height:100%;
 display:grid;
-place-items:center;
+justify-items:center;
+align-items:center;
 background-blend-mode:overlay;
+
+
 `;
 
 const Title = sc.h1`
+width:100%;
 font-size:2rem;
 text-align:center;
 position:relative;
@@ -78,37 +86,46 @@ border-bottom:2px solid ${(p) => p.theme.color.main};
 `;
 
 const Container = sc.div`
+width:90vw;
 display:flex;
 flex-direction:column;
-width:90%;
+align-items:center;
+justify-content:center;
 @media only screen and (max-width:720px) and (min-width:0px){
-  width:95%;
-  }
+  width:95vw;
+}
 
+`;
+const Cards = sc.div`
+width:100%;
+overflow-x:scroll;
+scroll-behavior:smooth;
+
+::-webkit-scrollbar {
+  width: 0;
+  height:0;
+}
 `;
 const Wrapper = sc.div`
 align-items:center;
 height:80%;
 margin-top:5%;
-width:100%;
-flex-wrap:wrap;
+width:max-content;
 justify-content:center;
-display:flex;`;
+display:flex;
+`;
 
 const Card = sc.div`
 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-max-width:300px;
-min-height:300px;
+width:300px;
 margin:0.5rem ;
-height:18vw;
-width:18%;
+aspect-ratio:4/4.5;
 color:white;
 align-items:flex-end;
 display:flex;
 background: ${(props) => `url(${props.bg})`} no-repeat center center/cover;
 transform-origin:center;
 transition: all 150ms cubic-bezier(0.25,0.46,0.45,0.94) 0s;
-box-shadow: rgba(0, 0, 0, 0.6) 6px 14px 26px;
  
 &:hover{
   background-color:rgb(0,0,0,0.8);
