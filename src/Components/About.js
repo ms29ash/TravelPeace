@@ -28,29 +28,41 @@ export default About1;
 
 const Section = sc.section`
      max-width:100vw;
-     padding:10vh 0;
+     padding:5vh 0;
      height:max-content;
      display:grid;
      place-items:center;
     position:relative;
-  
+    @media screen and (max-width:1024px) and (min-width:0px){
+     margin:0 0 4rem;
+   }
+    
     `;
 const Container = sc.div`
-width:95%;
-display:flex;
+    width:95%;
+    display:flex;
+    position:relative;
 align-items: center;
 `;
 const Wrapper = sc.div`
  width:60%;
  height:400px;
  display:grid;
-place-items: center;
-position:relative;
-overflow:hidden;
+ place-items: center;
+ position:relative;
+ overflow:hidden;
+ @media screen and (max-width:1024px) and (min-width:0px){
+   position:absolute;
+   width:80%;
+   height:300px;
+  top:50%;
+  left:1%;
+  right:80%;
+  border-radius: 8px;
+  z-index:2;
+}
 &:before{
-  filter: blur(5px);
-  background-color:#04bf7a8d;
-   background-color:${(p) => p.theme.color.main};
+  background-color:#04bf7ad7;
   content:'';
   top:0;
   position:absolute;
@@ -58,11 +70,13 @@ overflow:hidden;
   left:0;
   right:0;
  z-index:-2;
+ @media screen and (max-width:1024px) and (min-width:0px){
+  backdrop-filter: blur(5px);
+}
  }
 `;
 const Text = sc.div`
- width:70%;
-    font-familt:'Roboto';
+    width:70%;
     position:relative;
     &:before{
       content:'';
@@ -73,23 +87,32 @@ const Text = sc.div`
       background-color:#000;
       width:0.15rem;
       border-radius: 1rem;
-padding:0.5rem 0;
+      padding:0.5rem 0;
     }
 `;
 const Title = sc.h1`
 
 font-size:2rem;
 margin:1rem 0;
+@media screen and (max-width:768px) and (min-width:0px){
+  font-size:1.5rem
+}
 
 `;
 const Description = sc.div`
 font-weight: bold;
 margin:0 0 1rem;
+@media screen and (max-width:768px) and (min-width:0px){
+  font-size:0.75rem
+}
   `;
 
 const Img = sc.div`
 width:40%;
 height:400px;
+@media screen and (max-width:1024px) and (min-width:0px){
+  width:100%;
+}
 img{
   width:100%;
   height:100%;
