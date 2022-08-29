@@ -91,7 +91,7 @@ function Form() {
 export default Form;
 
 const Section = sc.section`
-width:100vw;
+max-width:100vw;
 background:#04BF7B;
 position:relative;
 background: #000000b7 url('./images/pool.jpg') no-repeat center center/cover;

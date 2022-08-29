@@ -65,7 +65,7 @@ function Reviews() {
             {reviews[no]?.review}
           </Main>
           <Name>{reviews[no]?.name}</Name>
-          {/* <Date>{reviews[no]?.date}</Date> */}
+
           <Date>{
             `${timeFormat(reviews[no]?.date)}`
 
@@ -79,7 +79,7 @@ function Reviews() {
 export default Reviews;
 
 const Section = sc.section`
-width:100vw;
+max-width:100vw;
 padding:5% 0;
 margin:8vh 0;
 position:relative;

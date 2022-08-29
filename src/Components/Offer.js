@@ -44,7 +44,7 @@ export default Offer;
 
 const Section = sc.section`
 padding:8vh 0 5vh;
-width:100vw;
+max-width:100vw;
 height:max-content;
 display:grid;
 place-items:center;

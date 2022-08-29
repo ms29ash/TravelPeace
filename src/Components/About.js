@@ -63,7 +63,7 @@ function About1() {
 export default About1;
 
 const Section = sc.section`
-     width:100vw;
+     max-width:100vw;
      padding:10vh 0;
     height:max-content;
     display:grid;
