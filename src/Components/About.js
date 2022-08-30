@@ -6,7 +6,7 @@ function About1() {
     <Section>
       <Container>
         <Img>
-          <img src="./images/town.jpg" alt="" />
+          <img src="./images/about.jpg" alt="" />
         </Img>
         <Wrapper>
           <Text>
@@ -41,6 +41,7 @@ const Section = sc.section`
 const Container = sc.div`
     width:95%;
     display:flex;
+    flex-direction:row-reverse;
     position:relative;
 align-items: center;
 `;
@@ -59,7 +60,7 @@ const Wrapper = sc.div`
   left:1%;
   right:80%;
   border-radius: 8px;
-  z-index:2;
+  z-index:5;
 }
 &:before{
   background-color:#04bf7ad7;
@@ -110,6 +111,7 @@ margin:0 0 1rem;
 const Img = sc.div`
 width:40%;
 height:400px;
+position:relative;
 @media screen and (max-width:1024px) and (min-width:0px){
   width:100%;
 }
