@@ -1,16 +1,15 @@
 import React from "react";
 import sc from "styled-components";
 
-function About1() {
+function About() {
+
   return (
-    <Section>
+    <>
+
       <Container>
-        <Img>
-          <img src="./images/about.jpg" alt="" />
-        </Img>
         <Wrapper>
           <Text>
-            <Title>Discover the india in a new way</Title>
+            <Head>Discover the india in a new way</Head>
             <Description>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
               quidem suscipit provident ipsam, tempora delectus. Quasi, alias
@@ -19,65 +18,60 @@ function About1() {
             </Description>
           </Text>
         </Wrapper>
+        <img src="./images/about.jpg" alt="" />
+
       </Container>
-    </Section>
+
+    </>
   );
 }
 
-export default About1;
+export default About;
 
-const Section = sc.section`
-     max-width:100vw;
-     padding:5vh 0;
-     height:max-content;
-     display:grid;
-     place-items:center;
-    position:relative;
-    @media screen and (max-width:1024px) and (min-width:0px){
-     margin:0 0 4rem;
-   }
+
+const Container = sc.section`
+display:flex;
+justify-content:center;
+max-width:95vw;
+margin:0 auto;
+margin-bottom:5vh;
+img{
+    width:60vw;
     
-    `;
-const Container = sc.div`
-    width:95%;
-    display:flex;
-    flex-direction:row-reverse;
-    position:relative;
-align-items: center;
+}
+@media screen and (max-width:1024px) and (min-width:0px){
+    flex-direction:column;
+    img{
+        margin-left:20vw;
+    }
+      
+  }
 `;
+
 const Wrapper = sc.div`
- width:60%;
+ width:30vw;
  height:400px;
+ margin-right:-15vw;
+ margin-bottom:-5vh;
  display:grid;
- place-items: center;
- position:relative;
- overflow:hidden;
- @media screen and (max-width:1024px) and (min-width:0px){
-   position:absolute;
-   width:80%;
-   height:300px;
-  top:50%;
-  left:1%;
-  right:80%;
-  border-radius: 8px;
-  z-index:5;
+place-items: center;
+position:relative;
+overflow:hidden;
+@media screen and (max-width:1440px) and (min-width:0px){
+    margin-right:-5vw;
+    height:300px;
+    margin-bottom:-8vh;
 }
-&:before{
-  background-color:#04bf7ad7;
-  content:'';
-  top:0;
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
- z-index:-2;
- @media screen and (max-width:1024px) and (min-width:0px){
-  backdrop-filter: blur(5px);
+@media screen and (max-width:1024px) and (min-width:600px){
+   width:50vw;
+   
 }
- }
+@media screen and (max-width:600px) and (min-width:0px){
+    width:80vw;
+  }
 `;
 const Text = sc.div`
-    width:70%;
+    width:80%;
     position:relative;
     &:before{
       content:'';
@@ -91,7 +85,7 @@ const Text = sc.div`
       padding:0.5rem 0;
     }
 `;
-const Title = sc.h1`
+const Head = sc.h1`
 
 font-size:2rem;
 margin:1rem 0;
@@ -108,18 +102,3 @@ margin:0 0 1rem;
 }
   `;
 
-const Img = sc.div`
-width:40%;
-height:400px;
-position:relative;
-@media screen and (max-width:1024px) and (min-width:0px){
-  width:100%;
-}
-img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  mask-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 22%, rgba(0,0,0,1) 88%, rgba(0,0,0,0) 100%);
-}
- 
-  `;
